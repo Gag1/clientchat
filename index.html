@@ -19,7 +19,7 @@
         const button = document.querySelector('.post button');
 
         button.onclick = () =>{
-           let url = "https://gagik.vercel.app"
+           let url = "https://gagix.vercel.app"
         fetch(`${url}/postData`,{
             method:'POST',
             headers:{"Content-Type":"application/json"},
@@ -32,7 +32,7 @@
       }
     function get(){
         const list = document.querySelector('.data p');
-        let url = "https://gagik.vercel.app"
+        let url = "https://gagix.vercel.app"
 
         fetch(`${url}/getData`)
       .then((res) => res.json())
