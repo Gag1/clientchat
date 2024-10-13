@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="post">
+        <input type="text" >
+        <button>send</button>
+    </div>
+    <div class="data">
+        <p></p>
+    </div>
+    <script>
+        const input = document.querySelector('.post input');
+        const button = document.querySelector('.post button');
+
+        button.onclick = () =>{
+           
+        fetch('http://localhost:3000/postData',{
+            method:'POST',
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({
+                data:input.value
+            })
+        }).then(() =>{
+            get();
+        })
+      }
+    function get(){
+        const list = document.querySelector('.data p');
+
+        fetch('http://localhost:3000/getData')
+      .then((res) => res.json())
+      .then((res) =>{
+        list.innerHTML = res.data;
+        
+      })
+    }
+    get();
+    </script>
+
+</body>
+</html>
